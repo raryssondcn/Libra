@@ -2,14 +2,14 @@ const knex = require("../database/knex")
 
 class UserController{
     async createUser(req, res){
-        const {name, email, fone} = req.body
+        const {name, email, password} = req.body
 
         const user = {
             name,
             email,
-            fone
+            password
         }
-        await knex("users").insert({name, email, fone})
+        await knex("users").insert({name, email, password})
         
         res.status(200).json(user)
     }
@@ -41,23 +41,7 @@ class UserController{
 
         res.status(201).json("Usuário deletado")
     }
-   /*  async lendBook(req, res){
-        const {id} = req.params
-        const {bookId} = req.params
-        await knex("users").where({id})
-        await knex("books").where({id: bookId}).update({available: false})
-
-
-        res.status(201).json("Emprestado")
-    }
-    async returnBook(req, res){
-        const {id} = req.params
-        const {bookId} = req.params
-        await knex("users").where({id})
-        await knex("books").where({id: bookId}).update({available: true})
-
-        res.status(201).json("Devolvido")
-    } */
+ 
 
     
 }

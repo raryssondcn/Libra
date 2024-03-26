@@ -3,7 +3,7 @@ exports.up = (knex) => {
       table.increments('id').primary()
       table.string("name").notNullable()
       table.string("email").notNullable()
-      table.string("fone").notNullable()
+      table.string("password").notNullable()
       //table.integer("bookId").unsigned().index().references("id").inTable("books")
       
     })

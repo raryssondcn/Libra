@@ -4,7 +4,7 @@ const pool = mysql2.createConnection({
     host: "localhost",
     user: "root",
     password: '',
-    database: "libraryManager_knex"
+    database: "libraryManager_knex2"
 }).promise()
 
 async function connection(){
