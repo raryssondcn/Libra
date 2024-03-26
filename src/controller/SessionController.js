@@ -8,14 +8,14 @@ class SessionController{
     async createSession(req, res){
         const{email, password} = req.body
 
-        const user = await knex("user").where({email}).first()
+        const user = await knex("users").where({email}).first()
         if(!user){
-            throw new AppError ("E-mail e/ou senha invalida", 401)
+            throw new AppError ("E-mail e/ou senha invalida", 400)
         }
 
         const passwordMatched = await compare(password, user.password)
         if(!passwordMatched){
-            throw new AppError("E-mail e/ou senha invalida", 401)
+            throw new AppError("E-mail e/ou senha invalida", 400)
         }
 
         const {secret, expiresIn} = authConfig.jwt
